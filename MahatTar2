@@ -1,0 +1,36 @@
+package org.example;
+import java.lang.*;
+import java.util.Scanner;
+
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String str;
+        int sum=0;
+
+        do{
+          System.out.println("הקש מחקוזת");
+           str=in.next();
+           sum++;
+        } while(isPhoneValid(str)==false);
+
+        System.out.println("מספר מחרוזות שהתקבלו"+sum);
+    }
+
+    public static boolean isPhoneValid(String str){
+        boolean isPhoneStartWith05 = str.startsWith("05");
+        boolean isPhoneThirdCharValidDigit = str.charAt(2)>='0' && str.charAt(2)<='8';//'a'==97 b==98 '0' '8'
+        boolean isPhoneFourthCharIsHyphen=str.charAt(3)=='-';
+        String lastSevenChars=str.substring(4,11);
+        boolean isAll7charsDigit =true; // 567675q = false 1234567 =true
+        for (int i=0;i<7 && isAll7charsDigit==true;i++){
+            char currentValue = lastSevenChars.charAt(i);//הערך הנוכחי במעבר הלולאה הזה מתוך שבעת הספרות שחתכנו בשורה 25
+            boolean isCurrentValDigit = Character.isDigit(currentValue);
+            if(isCurrentValDigit==false)
+                isAll7charsDigit=false;
+        }
+        return isPhoneStartWith05 && isPhoneThirdCharValidDigit && isPhoneFourthCharIsHyphen && isAll7charsDigit;
+    }
+}
