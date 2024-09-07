@@ -7,6 +7,21 @@ class HelloWorld {
         Time t = new Time(16,30);
         Time other = new Time (17,30);
         int x= t.difference(other);
+        for(int i=0;i<100;i++){
+            int startHour=in.nextInt(); //16
+            int startMin=in.nextInt(); //30
+            Time startTime=new Time(startHour,startMin);
+            
+            int endHour=in.nextInt();//17
+            int endMin=in.nextInt();//30
+            Time endTime=new Time(endHour,endMin);
+            
+            int hefresh = startTime.difference(endTime);
+            
+            if(hefresh<=180){
+                System.out.println("הזמנה תקינה");
+            }
+        }
     }
     
 }
@@ -32,3 +47,4 @@ public class Time
         return amountOfminutes;
     }
 }
+
