@@ -1,0 +1,34 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        Time t = new Time(16,30);
+        Time other = new Time (17,30);
+        int x= t.difference(other);
+    }
+    
+}
+
+public class Time
+{
+    private int hour; // שעה 23-0
+    private int min; // דקות 59-0
+    public Time (int hour, int min){
+        this.hour = hour;
+        this.min = min;
+    }
+    
+    public int difference(Time other){
+        int amountOfminutes;
+    //  other==this שגיאה. זהו השוואה בין כתובות האובייקט ולא בין הערכים שמכיל//
+    //456456==123123
+                              //  17   16
+        int hefreshShaotBedakot=(other.hour-this.hour)*60;
+                           //     30    30
+        int hefreshDakot=other.min-this.min;
+        amountOfminutes=hefreshShaotBedakot+hefreshDakot;
+        return amountOfminutes;
+    }
+}
